@@ -2,7 +2,10 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class EvaluationTest {
 
@@ -10,6 +13,10 @@ public class EvaluationTest {
         case1();
         case2();
         case3();
+        Integer a = 15;
+        var b = 10;
+        EvaluationTest.addToInt(a, b);
+        System.out.println(a);
     }
     private static void case1() {
         final int score1 = 8, score2 = 3;
@@ -40,5 +47,24 @@ public class EvaluationTest {
 //      IntStream.range(0,100).parallel().forEach(s -> data.add(s));
         IntStream.range(0,100).forEach(s -> data.add(s));
         System.out.println(data.size());
+    }
+
+    static void case4() {
+//        Predicate<String> empty = String::isEmpty;
+//        Predicate<String> notEmpty = empty.negate();
+//
+//        var result = Stream.generate(() -> "")
+//                .filter(notEmpty)
+//                .collect(Collectors.groupingBy(k -> k))
+//                .entrySet()
+//                .stream()
+//                .map(Entry::getValue)
+//                .flatMap(Collection::stream)
+//                .collect(Collectors.partitioningBy(notEmpty));
+//        System.out.println(result);
+    }
+
+    public static void addToInt(Integer x, int amountToAdd) {
+        x = x + amountToAdd;
     }
 }
